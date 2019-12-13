@@ -25,7 +25,7 @@ SECRET_KEY = '+#086a-qb3$8kkt$w-fx((^r+#*h*5)5bgi_alk$*07w3z%bv4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'level2kits.herokuapp.com']
 
 
 # Application definition
@@ -124,3 +124,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')

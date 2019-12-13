@@ -1,7 +1,7 @@
 <div class="card mb-3">
   <h5 class="card-header ">{{ kit.name }}</h5>
   <div class="card-body border-dark">
-    <p class="card-text text-dark">
+    <p class="card-text text-white">
       {{ kit.description|truncatewords_html:30 }}
       <hr>
       <div class="text-right"><a href="{% url 'kit:kit-detail-view' kit.slug %}" title="Read More">Read More</a></div>
