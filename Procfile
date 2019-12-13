@@ -1,1 +1,1 @@
-web: gunicorn level2kits.level2kits.wsgi --log-file -
+web: gunicorn level2kits.wsgi --log-file -
