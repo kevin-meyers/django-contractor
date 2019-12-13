@@ -12,7 +12,7 @@ class KitListView(ListView):
 
     def get(self, request):
         context = {'kits': self.get_queryset().all()}
-        return render(request, 'list.html', context)
+        return render(request, 'kit_list.html', context)
 
 
 class KitDetailView(DetailView):
@@ -20,5 +20,5 @@ class KitDetailView(DetailView):
     model = Kit
 
     def get(self, request, slug):
-        context = {'kit': self.get_queryset().get(slug__iexact=slug)}
+        context = {'kits': self.get_queryset().get(slug__iexact=slug)}
         return render(request, 'kit_page.html', context)
