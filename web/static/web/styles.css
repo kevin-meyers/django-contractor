@@ -19,7 +19,3 @@
   z-index: -1;
   opacity: 0.5; /* Tone the image down further by giving it transparency */
 }
-
-textbody {
-	background-color: blue;
-}

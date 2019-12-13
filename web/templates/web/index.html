@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'web/styles.css' %}">
+
 {% block content %}
 	<!-- HERO -->
 	<div class="jumbotron text-center hero-background-img">
@@ -47,5 +51,5 @@
 		</div>
 	</div>
 
-	{% include 'partials/team.html' %}
+	{% include 'web/partials/team.html' %}
 {% endblock %}

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +10,10 @@
 	<!-- BOOTSTRAP THEME -->
 	<link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css">
 
-	<!-- CUSTOM STYLES -->
-  <link rel="stylesheet" href="static/styles.css">
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="styles.css">
+
+
 
 
 </head>
@@ -52,7 +55,7 @@
 
 	{% block content %}{% endblock %}
 
-	<div class="footer bg-secondary p-5 text-white">
+	<div class="footer bg-secondary p-5 text-white" id='sticky-footer'>
 		&copy; 2020 Level2Kits Inc
 	</div>
 
