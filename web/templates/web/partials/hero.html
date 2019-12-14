@@ -1,0 +1,25 @@
+<div class="jumbotron text-center" style='
+  position: relative;
+  background: rgba(0, 0, 0, 0.3); /* If our image is bright, we can tone it down with this darker overlay */
+  padding-top:200px;  
+  padding-bottom:200px;'
+>
+	<h1>Level2Kits</h1>
+	<p class="lead">The one place to gain </br> skill in any domain!</p>
+	<a href="{% url 'kit:kit-list-view' %}" class="btn btn-primary">Look at Kits</a>
+	<div style='
+  content: "";
+  position: absolute;
+  background-image: url("https://images.unsplash.com/photo-1449247666642-264389f5f5b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0.5; /* Tone the image down further by giving it transparency */'>
+	</div>
+</div>
+

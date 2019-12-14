@@ -6,12 +6,7 @@
 
 {% block content %}
 	<!-- HERO -->
-	<div class="jumbotron text-center hero-background-img">
-		<h1>Level2Kits</h1>
-		<p class="lead">The one place to gain </br> skill in any domain!</p>
-		<a href="{% url 'kit:kit-list-view' %}" class="btn btn-primary">Look at Kits</a>
-	</div>
-	
+	{% include 'web/partials/hero.html' %}
 	<!-- BODY -->
 	<div id="textbody" class="col-lg-12 ml-5 mt-5">
 		<h1>HEADING</h1>
