@@ -1,1 +1,12 @@
 {% extends 'base.html' %}
+{% block content %}
+  <div class="row">
+    <div class="col m-4">
+      <h3>{{ kit.name }} <small class="text-muted">Last updated {{ kit.modified_at|date:"SHORT_DATETIME_FORMAT" }} by <b>{{ kit.curator.username }}</b></small></h3>
+      <hr>
+      <p>{{ kit.description|linebreaksbr }}</p>
+      <hr>
+      <a href="{% url 'kit:kit-list-view' %}">Back to List</a>
+    </div>
+  </div>
+{% endblock %}
