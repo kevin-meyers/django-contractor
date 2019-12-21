@@ -24,8 +24,6 @@ if bool(os.getenv('IS_PROD', False)):
 
 else:
     STATICFILE_DIRECTORY = 'static/assets'
-    from dotenv import load_dotenv
-    load_dotenv()
 
 
 STATICFILES_DIRS = [
@@ -40,7 +38,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'level2kits.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', 'localhost', 'level2kits.herokuapp.com']
 
 
 # Application definition
