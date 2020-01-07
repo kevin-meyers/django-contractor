@@ -7,18 +7,16 @@ from kit.models import Kit
 
 
 class KitListView(ListView):
-
     model = Kit
 
     def get(self, request):
         context = {'kits': self.get_queryset().all()}
-        return render(request, 'kit_list.html', context)
+        return render(request, 'kit/list.html', context)
 
 
 class KitDetailView(DetailView):
-
     model = Kit
 
     def get(self, request, slug):
         context = {'kit': self.get_queryset().get(slug__iexact=slug)}
-        return render(request, 'kit_page.html', context)
+        return render(request, 'kit/page.html', context)

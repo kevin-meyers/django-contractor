@@ -4,7 +4,7 @@
     <p class="card-text text-white">
       {{ kit.description|truncatewords_html:30 }}
       <hr>
-      <div class="text-right"><a href="{% url 'kit:kit-detail-view' kit.slug %}" title="Read More">Read More</a></div>
+      <div class="text-right"><a href="{% url 'kit:detail' kit.slug %}" title="Read More">Read More</a></div>
   </div>
   <div class="card-footer">
     <small class="text-muted">Last updated {{ kit.modified_at|date:"SHORT_DATETIME_FORMAT" }} by <b>{{ kit.curator.username }}</b></small>
