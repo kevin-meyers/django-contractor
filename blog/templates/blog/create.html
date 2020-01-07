@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Will have to check if user was authenticated again before allowing them to create -->
+
+<h1>Create New Blog Post!</h1>
+
+<form method="POST">
+	{% csrf_token %}
+	{{ form }}
+	<button type="submit" class="btn btn-default">Create Blog</button>
+</form>
+
+{% endblock %}
