@@ -4,6 +4,6 @@
   <div class="card-body">
 		<h5 class="card-title">{{ blog.title }}</h5>
 		<p class="card-text">{{ blog.summary }}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+		<a href="{% url 'blog:detail' blog.slug %}" class="btn btn-primary">Go to Blog</a>
   </div>
 </div>
