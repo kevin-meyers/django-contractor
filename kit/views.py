@@ -19,4 +19,4 @@ class KitDetailView(DetailView):
 
     def get(self, request, slug):
         context = {'kit': self.get_queryset().get(slug__iexact=slug)}
-        return render(request, 'kit/page.html', context)
+        return render(request, 'kit/detail.html', context)
