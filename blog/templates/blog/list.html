@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
+	<h3>Blogs</h3>
 
-Please work
+	<hr>
+	{% if kits %}
+		<div class='card-columns row'>
+			{% for blog in blogs %}
+				{% include 'blog/partials/card.html' %}
+			{% endfor %}
+		</div>
+	{% else %}
+		<div class='alert alert-primary' role='alert'>No blogs to display.</div>
+	{% endif %}
 
 {% endblock %}
