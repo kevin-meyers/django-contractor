@@ -42,7 +42,7 @@ class Kit(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('kit-details-page', {'slug': self.slug})
+        return reverse('kit:detail', {'slug': self.slug})
 
     def save(self, *args, **kwargs):
         ''' creates a slug url when new kit is created. '''

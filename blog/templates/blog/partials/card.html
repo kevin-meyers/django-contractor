@@ -1,0 +1,9 @@
+<div class="card" style="width: 18rem;">
+  <img src="https://thumbs.dreamstime.com/z/tv-test-image-card-rainbow-multi-color-bars-geometric-signals-retro-hardware-s-minimal-pop-art-print-suitable-89603635.jpg" class="card-img-top" width="100%" height="180">
+
+  <div class="card-body">
+		<h5 class="card-title">{{ blog.title }}</h5>
+		<p class="card-text">{{ blog.summary }}</p>
+		<a href="{% url 'blog:detail' blog.slug %}" class="btn btn-primary">Go to Blog</a>
+  </div>
+</div>

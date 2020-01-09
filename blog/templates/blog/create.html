@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Will have to check if user was authenticated again before allowing them to create -->
+{% if request.user.is_authenticated %}
+	<h1>Create New Blog Post!</h1>
+
+	<form method="POST">
+		{% csrf_token %}
+		{% for field in form %}
+			<h3>{{ field.label }}</h3> {{ field.help_text }}:<br/>
+			{{ field }}<br/>
+			
+		{% endfor %}
+		<button type="submit" class="btn btn-default">Create Blog</button>
+	</form>
+
+{% else %}
+	You need to be signed in to view!
+	<a href="{% url 'login' %}" class='btn btn-secondary ml-2'>Log In</a>
+{% endif %}
+
+
+{% endblock %}

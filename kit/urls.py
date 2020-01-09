@@ -4,6 +4,6 @@ from kit.views import KitListView, KitDetailView
 
 app_name='kit'
 urlpatterns = [
-    path('', KitListView.as_view(), name='kit-list-view'),
-    path('<str:slug>/', KitDetailView.as_view(), name='kit-detail-view'),
+    path('', KitListView.as_view(), name='list'),
+    path('<str:slug>/', KitDetailView.as_view(), name='detail'),
 ]
