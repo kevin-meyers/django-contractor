@@ -21,10 +21,12 @@ class Blog(models.Model):
     summary = models.TextField(max_length=SUMMARY_MAX_LENGTH, blank=True,
                                help_text="Summary of your blog (optional)")
 
-    created = models.DateTimeField(auto_now_add=True,
+    created_at = models.DateTimeField(auto_now_add=True,
                                    help_text="The date and time this page was created. Automatically generated when the model saves.")
-    modified = models.DateTimeField(auto_now=True,
+    modified_at = models.DateTimeField(auto_now=True,
                                     help_text="The date and time this page was updated. Automatically generated when the model updates.")
+
+    thumbnail_url = models.URLField(default="https://thumbs.dreamstime.com/z/tv-test-image-card-rainbow-multi-color-bars-geometric-signals-retro-hardware-s-minimal-pop-art-print-suitable-89603635.jpg")
 
     def __str__(self):
         return self.title
