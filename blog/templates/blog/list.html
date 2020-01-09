@@ -4,7 +4,7 @@
 	<h3>Blogs</h3>
 
 	{% if request.user.is_authenticated %}
-		<a href="{% url 'blog:create' %}">PLEASE WORK</a>
+		<a class="btn btn-secondary" href="{% url 'blog:create' %}">PLEASE WORK</a>
 	
 	{% endif %}
 		
