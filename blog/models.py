@@ -1,11 +1,23 @@
+import os
+
+from io import BytesIO
+from urllib.request import urlopen
+
+
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.core.files import File
 
 
 SUMMARY_MAX_LENGTH = 100  # Add this to settings. Consult Dani for more info.
+
+def get_image_from_url(image_url):
+    response = urlopen(image_url)
+    i = BytesIO(response.read())
+    return File(i)
 
 
 class Blog(models.Model):
@@ -26,7 +38,9 @@ class Blog(models.Model):
     modified_at = models.DateTimeField(auto_now=True,
                                     help_text="The date and time this page was updated. Automatically generated when the model updates.")
 
-    thumbnail_url = models.URLField(default="https://thumbs.dreamstime.com/z/tv-test-image-card-rainbow-multi-color-bars-geometric-signals-retro-hardware-s-minimal-pop-art-print-suitable-89603635.jpg")
+    image_url = models.URLField(default="https://thumbs.dreamstime.com/z/tv-test-image-card-rainbow-multi-color-bars-geometric-signals-retro-hardware-s-minimal-pop-art-print-suitable-89603635.jpg")
+    image_file = models.ImageField(upload_to='images',
+                                   default=get_image_from_url(image_url.default))
 
     def __str__(self):
         return self.title
@@ -43,6 +57,13 @@ class Blog(models.Model):
 
         if not self.summary:
             self.summary = self.content[:SUMMARY_MAX_LENGTH]
+
+        if self.image_url and not self.image_file:
+            image = get_image_from_url(self.image_url)
+            self.image_file.save(f"image_{self.pk}", image)
+
+
+        self.save()
 
         # Call save on the superclass.
         return super(Blog, self).save(*args, **kwargs)
