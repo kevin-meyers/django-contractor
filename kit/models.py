@@ -49,4 +49,4 @@ class Kit(models.Model):
         if not self.pk:
             self.slug = slugify(self.name, allow_unicode=True)
 
-            return super(Kit, self).save(*args, **kwargs)
+        return super(Kit, self).save(*args, **kwargs)

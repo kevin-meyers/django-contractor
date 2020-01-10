@@ -38,9 +38,8 @@ class Blog(models.Model):
     modified_at = models.DateTimeField(auto_now=True,
                                     help_text="The date and time this page was updated. Automatically generated when the model updates.")
 
-    image_url = models.URLField(default="https://thumbs.dreamstime.com/z/tv-test-image-card-rainbow-multi-color-bars-geometric-signals-retro-hardware-s-minimal-pop-art-print-suitable-89603635.jpg")
-    image_file = models.ImageField(upload_to='images',
-                                   default=get_image_from_url(image_url.default))
+    image_url = models.URLField(blank=True)
+    image_file = models.ImageField(upload_to='images', blank=True)
 
     def __str__(self):
         return self.title
@@ -58,12 +57,12 @@ class Blog(models.Model):
         if not self.summary:
             self.summary = self.content[:SUMMARY_MAX_LENGTH]
 
+        if not self.image_url:
+            self.image_url = "https://thumbs.dreamstime.com/z/tv-test-image-card-rainbow-multi-color-bars-geometric-signals-retro-hardware-s-minimal-pop-art-print-suitable-89603635.jpg"
+
         if self.image_url and not self.image_file:
             image = get_image_from_url(self.image_url)
             self.image_file.save(f"image_{self.pk}", image)
-
-
-        self.save()
 
         # Call save on the superclass.
         return super(Blog, self).save(*args, **kwargs)
